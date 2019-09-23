@@ -1,15 +1,14 @@
 import React from 'react';
+import Character from './Character';
 
 const listCharacters = props => {
   return props.characters.map(character => {
     return (
       <li key={character.id}>
-        <img src={character.origin.url} alt={character.name}/>
-        <p>{character.name}</p>
-        <p>{character.species}</p>
+        <Character character={character} />
       </li>
-    )
-  })
+    );
+  });
 };
 
 const CharacterList = props => {

@@ -22,7 +22,6 @@ class App extends React.Component {
       <div className="App">
         <React.Fragment>
           <header className='header'>
-            Hola
           </header>
           <CharacterList
             characters={this.state.characters}
