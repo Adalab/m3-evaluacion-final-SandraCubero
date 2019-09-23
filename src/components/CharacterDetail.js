@@ -12,7 +12,8 @@ const CharacterDetail = props => {
         alt={props.selectedCharacter.name}
       />
       <p>Nombre: {props.selectedCharacter.name}</p>
-      <p>Especie: {props.selectedCharacter.species}</p>
+      <p>Especie: {props.selectedCharacter.species.toLowerCase() === 'human' ? <span>Human <i className="fas fa-child" title='Human'></i></span> : <span>Alien <i className="fab fa-reddit-alien" title='Alien'></i></span>}</p>
+      
       <p>Planeta de origen: {props.selectedCharacter.origin.name}</p>
       <p>Número de episodios: {props.selectedCharacter.episode.length}</p>
       <p>Estado: {props.selectedCharacter.status.toLowerCase()=== 'alive' ? <i className="fas fa-heartbeat" title='Alive'></i> : props.selectedCharacter.status.toLowerCase()=== 'dead' ? <i className="fas fa-skull-crossbones" title='Dead'></i> : <i className="fas fa-question" title='Unknown'></i> }</p>

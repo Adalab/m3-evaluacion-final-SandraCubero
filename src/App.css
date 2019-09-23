@@ -12,6 +12,13 @@
   height: 40vmin;
   background-repeat: no-repeat;
 }
+.list {
+  list-style: none;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, 200px);
+  text-align: center;
+}
 
 .App-link {
   color: #09d3ac;

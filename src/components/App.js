@@ -16,6 +16,7 @@ class App extends React.Component {
     };
     this.handleFilter = this.handleFilter.bind(this);
     this.renderDetail = this.renderDetail.bind(this);
+    this.filterSearch = this.filterSearch.bind(this);
   }
   componentDidMount() {
     getDataFromServer().then(characters =>
@@ -27,6 +28,19 @@ class App extends React.Component {
       filterText: inputText
     });
   }
+
+  filterSearch() {
+    let filteredCharacters =
+      this.state.filterText === ''
+        ? this.state.characters
+        : this.state.characters.filter(character =>
+            character.name
+              .toLowerCase()
+              .includes(this.state.filterText.toLowerCase())
+          );
+    return filteredCharacters;
+  }
+
   renderDetail(props) {
     const selectedId = parseInt(props.match.params.id);
     let selectedCharacter;
@@ -50,9 +64,12 @@ class App extends React.Component {
             path="/"
             render={() => (
               <React.Fragment>
-                <FilterCharacters handleFilter={this.handleFilter} />
+                <FilterCharacters
+                  handleFilter={this.handleFilter}
+                  filterText={this.state.filterText}
+                />
                 <CharacterList
-                  characters={this.state.characters}
+                  characters={this.filterSearch()}
                   filterText={this.state.filterText}
                 />
               </React.Fragment>

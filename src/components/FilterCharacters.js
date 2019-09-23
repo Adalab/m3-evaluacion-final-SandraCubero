@@ -8,7 +8,11 @@ const handleChange = (props, ev) => {
 const FilterCharacters = props => {
   return (
     <div>
-      <input type="text" onChange={handleChange.bind(null, props)} />
+      <input
+        type="text"
+        value={props.filterText}
+        onChange={handleChange.bind(null, props)}
+      />
     </div>
   );
 };
