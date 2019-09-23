@@ -30,8 +30,7 @@ class App extends React.Component {
       <div className="App">
         <React.Fragment>
           <header className="header"></header>
-          <FilterCharacters
-           handleFilter={this.handleFilter} />
+          <FilterCharacters handleFilter={this.handleFilter} />
           <CharacterList
             characters={this.state.characters}
             filterText={this.state.filterText}

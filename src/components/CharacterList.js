@@ -1,5 +1,5 @@
 import React from 'react';
-import Character from './Character';
+import CharacterCard from './CharacterCard';
 
 const listCharacters = props => {
   return props.characters
@@ -9,7 +9,7 @@ const listCharacters = props => {
   .map(character => {
     return (
       <li key={character.id}>
-        <Character character={character} />
+        <CharacterCard character={character} />
       </li>
     );
   });
