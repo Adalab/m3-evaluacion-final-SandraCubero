@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import getDataFromServer from './DataFromServer';
 import CharacterList from './CharacterList';
 import FilterCharacters from './FilterCharacters';
@@ -34,26 +35,22 @@ class App extends React.Component {
         selectedCharacter = character;
       }
     }
-    return (
-      <CharacterDetail
-        selectedCharacter={selectedCharacter}
-      />
-    );
+    return <CharacterDetail selectedCharacter={selectedCharacter} />;
   }
 
   render() {
     return (
       <div className="App">
-        <header className="header"></header>
+        <Link to={'/'}>
+          <header className="header"></header>
+        </Link>
         <Switch>
           <Route
             exact
             path="/"
             render={() => (
               <React.Fragment>
-                <FilterCharacters
-                  handleFilter={this.handleFilter}
-                />
+                <FilterCharacters handleFilter={this.handleFilter} />
                 <CharacterList
                   characters={this.state.characters}
                   filterText={this.state.filterText}
