@@ -1,8 +1,10 @@
 import React from 'react';
 import '../App.css';
+import { Switch, Route } from 'react-router-dom';
 import getDataFromServer from './DataFromServer';
 import CharacterList from './CharacterList';
 import FilterCharacters from './FilterCharacters';
+import CharacterDetail from './CharacterDetail';
 
 class App extends React.Component {
   constructor() {
@@ -12,6 +14,7 @@ class App extends React.Component {
       filterText: ''
     };
     this.handleFilter = this.handleFilter.bind(this);
+    this.renderDetail = this.renderDetail.bind(this);
   }
   componentDidMount() {
     getDataFromServer().then(characters =>
@@ -23,19 +26,43 @@ class App extends React.Component {
       filterText: inputText
     });
   }
+  renderDetail(props) {
+    const selectedId = parseInt(props.match.params.id);
+    let selectedCharacter;
+    for (const character of this.state.characters) {
+      if (parseInt(character.id) === selectedId) {
+        selectedCharacter = character;
+      }
+    }
+    return (
+      <CharacterDetail
+        selectedCharacter={selectedCharacter}
+      />
+    );
+  }
 
   render() {
-    console.log(this.state.filterText);
     return (
       <div className="App">
-        <React.Fragment>
-          <header className="header"></header>
-          <FilterCharacters handleFilter={this.handleFilter} />
-          <CharacterList
-            characters={this.state.characters}
-            filterText={this.state.filterText}
+        <header className="header"></header>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <React.Fragment>
+                <FilterCharacters
+                  handleFilter={this.handleFilter}
+                />
+                <CharacterList
+                  characters={this.state.characters}
+                  filterText={this.state.filterText}
+                />
+              </React.Fragment>
+            )}
           />
-        </React.Fragment>
+          <Route path="/detail/:id" render={this.renderDetail} />
+        </Switch>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Character = props => {
+const CharacterCard = props => {
   return (
     <div>
       <img src={props.character.image} alt={props.character.name} />
@@ -10,4 +10,4 @@ const Character = props => {
   );
 };
 
-export default Character;
+export default CharacterCard;
