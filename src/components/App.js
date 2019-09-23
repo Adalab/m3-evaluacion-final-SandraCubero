@@ -1,6 +1,8 @@
 import React from 'react';
 import '../App.css';
 import getDataFromServer from './DataFromServer';
+import CharacterList from './CharacterList';
+
 
 class App extends React.Component {
   constructor() {
@@ -11,13 +13,23 @@ class App extends React.Component {
   }
   componentDidMount() {
     getDataFromServer().then(characters =>
-      // console.log(characters)
-      this.setState({ characters: characters })
+      this.setState({ characters: characters.results })
     );
   }
+
   render() {
-    console.log(this.state.characters);
-    return <div className="App">Hola</div>;
+    return (
+      <div className="App">
+        <React.Fragment>
+          <header className='header'>
+            Hola
+          </header>
+          <CharacterList
+            characters={this.state.characters}
+          />
+        </React.Fragment>
+      </div>
+    );
   }
 }
 
