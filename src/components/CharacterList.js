@@ -3,11 +3,12 @@ import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
 
 const listCharacters = props => {
-  return props.characters
-    .filter(character =>
-      character.name.toLowerCase().includes(props.filterText.toLowerCase())
-    )
-    .map(character => {
+  let filteredCharacters = props.characters
+  .filter(character =>
+    character.name.toLowerCase().includes(props.filterText.toLowerCase())
+  )
+  
+  return props.filterText === '' || filteredCharacters.length > 0 ? filteredCharacters.map(character => {
       return (
         <li key={character.id}>
           <Link to={`/detail/${character.id}`}>
@@ -15,7 +16,7 @@ const listCharacters = props => {
           </Link>
         </li>
       );
-    });
+    }) : <p>¡Vaya! No hay resultados con ese nombre.</p>
 };
 
 const CharacterList = props => {
