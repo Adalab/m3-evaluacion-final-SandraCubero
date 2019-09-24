@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const CharacterDetail = props => {
-  const {image, name, species, origin, episode, status} = props.selectedCharacter;
   return props.selectedCharacter ? (
     <div>
       <Link to={'/'}>
         <p>&lt; Back</p>
       </Link>
-      <img src={image} alt={name} />
-      <p>Name: {name}</p>
+      <img
+        src={props.selectedCharacter.image}
+        alt={props.selectedCharacter.name}
+      />
+      <p>Name: {props.selectedCharacter.name}</p>
       <p>
         Species:{' '}
-        {species.toLowerCase() === 'human' ? (
+        {props.selectedCharacter.species.toLowerCase() === 'human' ? (
           <span>
             Human <i className="fas fa-child" title="Human"></i>
           </span>
@@ -24,13 +26,13 @@ const CharacterDetail = props => {
         )}
       </p>
 
-      <p>Origin: {origin.name}</p>
-      <p>Episodes: {episode.length}</p>
+      <p>Origin: {props.selectedCharacter.origin.name}</p>
+      <p>Episodes: {props.selectedCharacter.episode.length}</p>
       <p>
         Status:{' '}
-        {status.toLowerCase() === 'alive' ? (
+        {props.selectedCharacter.status.toLowerCase() === 'alive' ? (
           <i className="fas fa-heartbeat" title="Alive"></i>
-        ) : status.toLowerCase() === 'dead' ? (
+        ) : props.selectedCharacter.status.toLowerCase() === 'dead' ? (
           <i className="fas fa-skull-crossbones" title="Dead"></i>
         ) : (
           <i className="fas fa-question" title="Unknown"></i>
@@ -39,7 +41,7 @@ const CharacterDetail = props => {
     </div>
   ) : (
     <div>
-      <p>We've not found results</p>
+      <p>Ops! It seems there aren't characters here.</p>
       <Link to={'/'}>
         <p>&lt; Back to list</p>
       </Link>
