@@ -14,8 +14,9 @@ class App extends React.Component {
       filterText: ''
     };
     this.handleFilter = this.handleFilter.bind(this);
-    this.renderDetail = this.renderDetail.bind(this);
     this.filterSearch = this.filterSearch.bind(this);
+    this.renderDetail = this.renderDetail.bind(this);
+    this.renderHome = this.renderHome.bind(this);
   }
   componentDidMount() {
     getDataFromServer().then(characters =>
@@ -40,6 +41,16 @@ class App extends React.Component {
     return filteredCharacters;
   }
 
+  renderHome() {
+    return (
+      <Home
+        handleFilter={this.handleFilter}
+        filterText={this.state.filterText}
+        characters={this.filterSearch()}
+      />
+    );
+  }
+
   renderDetail(props) {
     const selectedId = parseInt(props.match.params.id);
     let selectedCharacter;
@@ -58,17 +69,7 @@ class App extends React.Component {
           <header className="header"></header>
         </Link>
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <Home
-                handleFilter={this.handleFilter}
-                filterText={this.state.filterText}
-                characters={this.filterSearch()}
-              />
-            )}
-          />
+          <Route exact path="/" render={this.renderHome} />
           <Route path="/detail/:id" render={this.renderDetail} />
         </Switch>
       </div>

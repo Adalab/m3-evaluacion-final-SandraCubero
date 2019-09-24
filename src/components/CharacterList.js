@@ -1,6 +1,7 @@
 import React from 'react';
 import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const listCharacters = props => {
   return props.characters ? (
@@ -24,6 +25,10 @@ const listCharacters = props => {
 
 const CharacterList = props => {
   return <ul className="list">{listCharacters(props)}</ul>;
+};
+
+listCharacters.propTypes = {
+  characters: PropTypes.array
 };
 
 export default CharacterList;

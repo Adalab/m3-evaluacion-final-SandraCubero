@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterCharacters from './FilterCharacters';
 import CharacterList from './CharacterList';
+import PropTypes from 'prop-types';
 
 const Home = props => {
   return (
@@ -11,10 +12,15 @@ const Home = props => {
       />
       <CharacterList
         characters={props.characters}
-        filterText={props.filterText}
       />
     </React.Fragment>
   );
 };
+
+Home.propTypes = {
+  characters: PropTypes.array,
+  handleFilter: PropTypes.func,
+  filterhText: PropTypes.string
+}
 
 export default Home;

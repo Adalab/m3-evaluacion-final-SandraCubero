@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const handleChange = (props, ev) => {
   const inputText = ev.target.value;
@@ -15,6 +16,11 @@ const FilterCharacters = props => {
       />
     </div>
   );
+};
+
+FilterCharacters.propTypes = {
+  handleFilter: PropTypes.func,
+  filterText: PropTypes.string
 };
 
 export default FilterCharacters;

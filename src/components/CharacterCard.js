@@ -1,15 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 const picStyle = {
   height : '200px'
 }
 const CharacterCard = props => {
+  const { image, name, species } = props.character;
   return (
     <div>
-      <img src={props.character.image} alt={props.character.name} style={picStyle} />
-      <p>{props.character.name}</p>
-      <p>{props.character.species}</p>
+      <img src={image} alt={name} style={picStyle} />
+      <p>{name}</p>
+      <p>{species}</p>
     </div>
   );
+};
+
+CharacterCard.propTypes = {
+  character: PropTypes.object
 };
 
 export default CharacterCard;
