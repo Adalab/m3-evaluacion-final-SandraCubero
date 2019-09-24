@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import getDataFromServer from '../services/DataFromServer';
 import Home from './Home';
 import CharacterDetail from './CharacterDetail';
+import NotFound from './NotFound';
 
 class App extends React.Component {
   constructor() {
@@ -71,6 +72,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" render={this.renderHome} />
           <Route path="/detail/:id" render={this.renderDetail} />
+          <Route path="*" component={NotFound}/>
         </Switch>
       </div>
     );

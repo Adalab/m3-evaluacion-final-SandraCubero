@@ -46,7 +46,7 @@ const CharacterDetail = props => {
    </div>
   ) : (
     <div>
-      <p>Ops! It seems there aren't characters here.</p>
+      <p>Loading...</p>
       <Link className="link_2" to={'/'}>
         <p>&lt; Back to list</p>
       </Link>
