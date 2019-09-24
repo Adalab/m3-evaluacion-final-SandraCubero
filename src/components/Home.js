@@ -10,9 +10,7 @@ const Home = props => {
         handleFilter={props.handleFilter}
         filterText={props.filterText}
       />
-      <CharacterList
-        characters={props.characters}
-      />
+      <CharacterList characters={props.characters} />
     </React.Fragment>
   );
 };
@@ -21,6 +19,6 @@ Home.propTypes = {
   characters: PropTypes.array,
   handleFilter: PropTypes.func,
   filterhText: PropTypes.string
-}
+};
 
 export default Home;

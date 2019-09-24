@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/_characterList.scss'
+import '../stylesheets/_characterList.scss';
 import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -9,15 +9,15 @@ const listCharacters = props => {
     props.characters.length > 0 ? (
       props.characters.map(character => {
         return (
-          <li className='card' key={character.id}>
-            <Link className='link' to={`/detail/${character.id}`}>
+          <li className="card" key={character.id}>
+            <Link className="link" to={`/detail/${character.id}`}>
               <CharacterCard character={character} />
             </Link>
           </li>
         );
       })
     ) : (
-      <p>Ops! There aren't results. Try with another name</p>
+      <p>Ops! There aren't results.</p>
     )
   ) : (
     <p>Loading...</p>

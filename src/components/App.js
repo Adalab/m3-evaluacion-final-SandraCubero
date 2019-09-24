@@ -55,12 +55,17 @@ class App extends React.Component {
   renderDetail(props) {
     const selectedId = parseInt(props.match.params.id);
     let selectedCharacter;
+    let characterFound;
     for (const character of this.state.characters) {
       if (parseInt(character.id) === selectedId) {
         selectedCharacter = character;
+        characterFound = true;
+      }
+      else {
+        characterFound = false;
       }
     }
-    return <CharacterDetail selectedCharacter={selectedCharacter} />;
+    return <CharacterDetail selectedCharacter={selectedCharacter} characterFound />;
   }
 
   render() {
@@ -72,7 +77,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" render={this.renderHome} />
           <Route path="/detail/:id" render={this.renderDetail} />
-          <Route path="*" component={NotFound}/>
+          <Route path="*" component={NotFound} />
         </Switch>
       </div>
     );

@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const CharacterDetail = props => {
-  return props.selectedCharacter ? (
-    props.selectedCharacter !== 'undefined' ? (
+  console.log(props);
+  return props.characterFound === true ? (
+    props.selectedCharacter ? (
       <div className="container">
-        <Link className="link" to={'/'}>
-          <p>&lt; Back</p>
-        </Link>
+        <p className="link">
+          <Link className="link" to={'/'}>
+            &lt; Back
+          </Link>
+        </p>
         <div className="detail">
           <img
             src={props.selectedCharacter.image}
@@ -48,9 +51,6 @@ const CharacterDetail = props => {
     ) : (
       <div>
         <p>Loading...</p>
-        <Link className="link_2" to={'/'}>
-          <p>&lt; Back to list</p>
-        </Link>
       </div>
     )
   ) : (
