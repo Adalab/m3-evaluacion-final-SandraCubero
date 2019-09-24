@@ -5,15 +5,15 @@ const CharacterDetail = props => {
   return props.selectedCharacter ? (
     <div>
       <Link to={'/'}>
-        <p>&lt; Volver</p>
+        <p>&lt; Back</p>
       </Link>
       <img
         src={props.selectedCharacter.image}
         alt={props.selectedCharacter.name}
       />
-      <p>Nombre: {props.selectedCharacter.name}</p>
+      <p>Name: {props.selectedCharacter.name}</p>
       <p>
-        Especie:{' '}
+        Species:{' '}
         {props.selectedCharacter.species.toLowerCase() === 'human' ? (
           <span>
             Human <i className="fas fa-child" title="Human"></i>
@@ -25,10 +25,10 @@ const CharacterDetail = props => {
         )}
       </p>
 
-      <p>Planeta de origen: {props.selectedCharacter.origin.name}</p>
-      <p>Número de episodios: {props.selectedCharacter.episode.length}</p>
+      <p>Origin: {props.selectedCharacter.origin.name}</p>
+      <p>Episodes: {props.selectedCharacter.episode.length}</p>
       <p>
-        Estado: {props.selectedCharacter.status.toLowerCase() === 'alive' ? (
+        Status: {props.selectedCharacter.status.toLowerCase() === 'alive' ? (
           <i className="fas fa-heartbeat" title="Alive"></i>
         ) : props.selectedCharacter.status.toLowerCase() === 'dead' ? (
           <i className="fas fa-skull-crossbones" title="Dead"></i>
@@ -39,9 +39,9 @@ const CharacterDetail = props => {
     </div>
   ) : (
     <div>
-      <p>No se han encontrado resultados</p>
+      <p>We've not found results</p>
       <Link to={'/'}>
-        <p>&lt;  Volver al listado</p>
+        <p>&lt;  Back to the list</p>
       </Link>
     </div>
   );

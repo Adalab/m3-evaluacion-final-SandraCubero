@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import { Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import getDataFromServer from './DataFromServer';
+import getDataFromServer from '../services/DataFromServer';
 import Home from './Home';
 import CharacterDetail from './CharacterDetail';
 

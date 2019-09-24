@@ -15,10 +15,10 @@ const listCharacters = props => {
         );
       })
     ) : (
-      <p>¡Vaya! No hay resultados. Prueba a introducir otro nombre.</p>
+      <p>Ops! There aren't results. Try with another name</p>
     )
   ) : (
-    <p>Cargando...</p>
+    <p>Loading...</p>
   );
 };
 
