@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const CharacterDetail = props => {
-  console.log(props);
   return props.characterFound === true ? (
     props.selectedCharacter ? (
       <div className="container">
@@ -55,7 +54,7 @@ const CharacterDetail = props => {
     )
   ) : (
     <div>
-      <p>Ops! There's no character in this page</p>{' '}
+      <p>Ops! There's no character in this page</p>
       <Link className="link_2" to={'/'}>
         <p>&lt; Back to list </p>
       </Link>

@@ -55,17 +55,14 @@ class App extends React.Component {
   renderDetail(props) {
     const selectedId = parseInt(props.match.params.id);
     let selectedCharacter;
-    let characterFound;
+    let characterFound = false;
     for (const character of this.state.characters) {
       if (parseInt(character.id) === selectedId) {
         selectedCharacter = character;
         characterFound = true;
       }
-      else {
-        characterFound = false;
-      }
     }
-    return <CharacterDetail selectedCharacter={selectedCharacter} characterFound />;
+    return <CharacterDetail selectedCharacter={selectedCharacter} characterFound={characterFound} />;
   }
 
   render() {
