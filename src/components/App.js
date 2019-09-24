@@ -3,8 +3,7 @@ import '../App.css';
 import { Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import getDataFromServer from './DataFromServer';
-import CharacterList from './CharacterList';
-import FilterCharacters from './FilterCharacters';
+import Home from './Home';
 import CharacterDetail from './CharacterDetail';
 
 class App extends React.Component {
@@ -63,16 +62,11 @@ class App extends React.Component {
             exact
             path="/"
             render={() => (
-              <React.Fragment>
-                <FilterCharacters
-                  handleFilter={this.handleFilter}
-                  filterText={this.state.filterText}
-                />
-                <CharacterList
-                  characters={this.filterSearch()}
-                  filterText={this.state.filterText}
-                />
-              </React.Fragment>
+              <Home
+                handleFilter={this.handleFilter}
+                filterText={this.state.filterText}
+                characters={this.filterSearch()}
+              />
             )}
           />
           <Route path="/detail/:id" render={this.renderDetail} />

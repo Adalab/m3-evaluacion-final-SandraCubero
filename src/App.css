@@ -1,10 +1,15 @@
+body {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
 .App {
   text-align: center;
   background-color: #000000;
   color: white;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  justify-content: center;
 }
 
 .header {
@@ -13,11 +18,13 @@
   background-repeat: no-repeat;
 }
 .list {
+  margin: auto;
   list-style: none;
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(5, 200px);
+  grid-template-columns: repeat(4, 200px);
   text-align: center;
+  padding: 0;
 }
 
 .App-link {
