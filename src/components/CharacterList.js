@@ -1,4 +1,5 @@
 import React from 'react';
+import '../stylesheets/_characterList.scss'
 import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -8,8 +9,8 @@ const listCharacters = props => {
     props.characters.length > 0 ? (
       props.characters.map(character => {
         return (
-          <li key={character.id}>
-            <Link to={`/detail/${character.id}`}>
+          <li className='card' key={character.id}>
+            <Link className='link' to={`/detail/${character.id}`}>
               <CharacterCard character={character} />
             </Link>
           </li>

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../stylesheets/_filterCharacters.scss'
 import PropTypes from 'prop-types';
 
 const handleChange = (props, ev) => {
@@ -8,11 +9,13 @@ const handleChange = (props, ev) => {
 
 const FilterCharacters = props => {
   return (
-    <div>
+    <div className='input_container'>
       <input
         type="text"
         value={props.filterText}
         onChange={handleChange.bind(null, props)}
+        className='input'
+        placeholder='Who are you looking for?'
       />
     </div>
   );

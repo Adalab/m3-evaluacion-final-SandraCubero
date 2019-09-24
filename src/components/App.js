@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../stylesheets/App.scss';
 import { Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import getDataFromServer from '../services/DataFromServer';
